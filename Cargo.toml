@@ -8,6 +8,11 @@ keywords = ["rust", "ai", "mcp", "cli", "anchor"]
 categories = ["command-line-utilities"]
 readme = "README.md"
 license = "Apache-2.0"
+repository = "https://github.com/honey-guard/anchor-mcp"
+
+[[bin]]
+name = "anchor-mcp"
+path = "src/main.rs"
 
 [dependencies]
 tokio = { version = "1.0", features = ["full"] }
