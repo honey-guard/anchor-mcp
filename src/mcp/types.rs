@@ -324,6 +324,7 @@ pub struct Root {
     pub url: String,
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ErrorCode {
     // MCP SDK error codes
@@ -388,4 +389,14 @@ impl JsonRpcError {
             },
         }
     }
+}
+
+#[derive(Deserialize, Serialize, RpcParams)]
+pub struct SecurityCheckProgramRequest {
+    pub program_path: Option<String>,
+}
+
+#[derive(Deserialize, Serialize, RpcParams)]
+pub struct SecurityCheckFileRequest {
+    pub file_path: Option<String>,
 }

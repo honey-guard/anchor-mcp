@@ -17,8 +17,7 @@ mcp-rs-template is a simple application template that demonstrates how to implem
     - `src/mcp/tools.rs`: tools handlers
 4. Modify `src/mcp/templates/*.json` if you prefer to use json files for prompts, resources, and tools
 
-mcp-rs-template is based on [rust-rpc-router](https://github.com/jeremychone/rust-rpc-router), a JSON-RPC routing
-library for Rust.
+This server uses [mcp-rs-template.](https://github.com/linux-china/mcp-rs-template)
 
 # CLI options
 
@@ -27,7 +26,7 @@ library for Rust.
 * `--prompts`: display prompts
 * `--tools`: display tools
 
-# How to use MCP CLI server in Claude Desktop?
+# How to use Anchor MCP CLI server in Claude Desktop?
 
 1. Edit `claude_desktop_config.json`: Claude Desktop -> `Settings` -> `Developer` -> `Edit Config` 
 2. Add the following configuration to the `servers` section:
@@ -35,8 +34,17 @@ library for Rust.
 ```json
 {
    "mcpServers": {
-      "current-time": {
-         "command": "mcp-rs-template",
+      "security_check_program": {
+         "command": "security_check_program",
+         "args": [
+            "--mcp"
+         ],
+         "env": {
+            "API_KEY": "xxxx"
+         }
+      },
+      "security_check_file": {
+         "command": "security_check_file",
          "args": [
             "--mcp"
          ],

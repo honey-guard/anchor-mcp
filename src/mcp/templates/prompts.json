@@ -1,22 +1,22 @@
 [
   {
-    "name": "current-time",
-    "description": "Display current time in the city",
+    "name": "security_check_program",
+    "description": "Given a program path, check if program passes solana fender checks",
     "arguments": [
       {
-        "name": "city",
-        "description": "City name",
+        "name": "program_path",
+        "description": "Path to anchor program folder to check",
         "required": true
       }
     ]
   },
   {
-    "name": "analyze-code",
-    "description": "Analyze code for potential improvements",
+    "name": "security_check_file",
+    "description": "Given a file path, check if file passes solana fender checks",
     "arguments": [
       {
-        "name": "language",
-        "description": "Programming language",
+        "name": "file_path",
+        "description": "Path to anchor file folder to check",
         "required": true
       }
     ]

@@ -57,6 +57,7 @@ pub async fn roots_list(_request: Option<ListRootsRequest>) -> HandlerResult<Lis
 }
 
 /// send notification to client
+#[allow(dead_code)]
 pub fn notify(method: &str, params: Option<Value>) {
     let notification = json!({
         "jsonrpc": "2.0",

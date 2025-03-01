@@ -37,7 +37,7 @@ async fn main() {
     // clap args parser
     let args = Args::parse();
     if !args.mcp {
-        display_info(&args);
+        display_info(&args).await;
         return;
     }
     // signal handling to exit cli
@@ -176,7 +176,8 @@ async fn display_info(args: &Args) {
         if args.prompts {
             println!(
                 r#"prompts:
-- current_time: get current time in city
+- security_check_program: check security of an anchor program
+- security_check_file: check security of an anchor file
 "#
             );
         }
@@ -190,7 +191,8 @@ async fn display_info(args: &Args) {
         if args.tools {
             println!(
                 r#"tools:
-- get_current_time_in_city: get current time in city
+- security_check_program: check security of an anchor program
+- security_check_file: check security of an anchor file
 "#
             );
         }

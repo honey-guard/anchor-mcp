@@ -1,18 +1,12 @@
 use crate::mcp::types::*;
 use rpc_router::HandlerResult;
-use url::Url;
 
 pub async fn resources_list(
     _request: Option<ListResourcesRequest>,
 ) -> HandlerResult<ListResourcesResult> {
-    //let resources: Vec<Resource> = serde_json::from_str(include_str!("./templates/resources.json")).unwrap();
+    let resources: Vec<Resource> = serde_json::from_str(include_str!("./templates/resources.json")).unwrap();
     let response = ListResourcesResult {
-        resources: vec![Resource {
-            uri: Url::parse("file:///logs/app.log").unwrap(),
-            name: "Application Logs".to_string(),
-            description: None,
-            mime_type: Some("text/plain".to_string()),
-        }],
+        resources,
         next_cursor: None,
     };
     Ok(response)

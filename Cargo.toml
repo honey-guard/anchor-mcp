@@ -1,10 +1,10 @@
 [package]
-name = "mcp-rs-template"
+name = "anchor-mcp"
 version = "0.1.0"
 edition = "2021"
-authors = ["your name <your-name@example.com>"]
-description = "Model Context Protocol (MCP) Rust CLI server template"
-keywords = ["rust", "ai", "mcp", "cli"]
+authors = ["Cian github.com/cianyyz"]
+description = "Anchor Model Context Protocol (MCP) Rust CLI server which allows AI IDE's such as Cursor or Windsurf to more effectively write Anchor programs"
+keywords = ["rust", "ai", "mcp", "cli", "anchor"]
 categories = ["command-line-utilities"]
 readme = "README.md"
 license = "Apache-2.0"
@@ -19,6 +19,7 @@ maplit = "1"
 clap = { version = "4.5", features = ["derive"] }
 chrono = "0.4.38"
 signal-hook = "0.3"
+solana_fender = "0.4.1"
 
 [profile.dev]
 opt-level = 1
