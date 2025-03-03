@@ -1,6 +1,6 @@
 [package]
 name = "anchor-mcp"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Cian github.com/cianyyz"]
 description = "Anchor Model Context Protocol (MCP) Rust CLI server which allows AI IDE's such as Cursor or Windsurf to more effectively write Anchor programs"
