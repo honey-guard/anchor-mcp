@@ -55,6 +55,7 @@ async fn main() {
     let mut logging_file = OpenOptions::new()
         .write(true)
         .append(true)
+        .create(true)
         .open("/tmp/mcp.jsonl")
         .unwrap();
     while input.read_line(&mut line).unwrap() != 0 {
