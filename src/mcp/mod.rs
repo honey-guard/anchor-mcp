@@ -1,7 +1,6 @@
 pub mod utilities;
 pub mod types;
 pub mod prompts;
-pub mod resources;
 pub mod tools;
 
 const JSONRPC_VERSION: &str = "2.0";

@@ -14,7 +14,6 @@ pub async fn initialize(_request: InitializeRequest) -> HandlerResult<Initialize
         capabilities: ServerCapabilities {
             experimental: None,
             prompts: Some(PromptCapabilities::default()),
-            resources: None,
             tools: Some(json!({})),
             roots: None,
             sampling: None,

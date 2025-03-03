@@ -28,19 +28,13 @@ This server uses [mcp-rs-template.](https://github.com/linux-china/mcp-rs-templa
          "command": "security_check_program",
          "args": [
             "--mcp"
-         ],
-         "env": {
-            "API_KEY": "xxxx"
-         }
+         ]
       },
       "security_check_file": {
          "command": "security_check_file",
          "args": [
             "--mcp"
-         ],
-         "env": {
-            "API_KEY": "xxxx"
-         }
+         ]
       }
    }
 }

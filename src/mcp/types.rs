@@ -22,8 +22,6 @@ pub struct ServerCapabilities {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prompts: Option<PromptCapabilities>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub resources: Option<ResourceCapabilities>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     pub tools: Option<Value>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub roots: Option<Value>,
@@ -87,28 +85,7 @@ pub struct InitializeResult {
 
 // --------- resource -------
 
-#[derive(Debug, Deserialize, Serialize, RpcParams)]
-pub struct ListResourcesRequest {
-    pub cursor: Option<String>,
-}
 
-#[derive(Debug, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct ListResourcesResult {
-    pub resources: Vec<Resource>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub next_cursor: Option<String>,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Resource {
-    pub uri: Url,
-    pub name: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    pub mime_type: Option<String>,
-}
 
 #[derive(Debug, Deserialize, Serialize, RpcParams)]
 pub struct ReadResourceRequest {

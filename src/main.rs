@@ -1,7 +1,6 @@
 mod mcp;
 
 use crate::mcp::prompts::{prompts_get, prompts_list};
-use crate::mcp::resources::{resource_read, resources_list};
 use crate::mcp::tools::{register_tools, tools_list};
 use crate::mcp::types::{
     CancelledNotification, JsonRpcError, JsonRpcResponse, ToolCallRequestParams,
@@ -19,15 +18,11 @@ use std::thread;
 
 fn build_rpc_router() -> Router {
     let builder = RouterBuilder::default()
-        // append resources here
         .append_dyn("initialize", initialize.into_dyn())
         .append_dyn("ping", ping.into_dyn())
-        .append_dyn("logging/setLevel", logging_set_level.into_dyn())
         .append_dyn("roots/list", roots_list.into_dyn())
         .append_dyn("prompts/list", prompts_list.into_dyn())
-        .append_dyn("prompts/get", prompts_get.into_dyn())
-        .append_dyn("resources/list", resources_list.into_dyn())
-        .append_dyn("resources/read", resource_read.into_dyn());
+        .append_dyn("prompts/get", prompts_get.into_dyn());
     let builder = register_tools(builder);
     builder.build()
 }
@@ -130,9 +125,6 @@ async fn main() {
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// list resources
-    #[arg(long, default_value = "false")]
-    resources: bool,
     /// list prompts
     #[arg(long, default_value = "false")]
     prompts: bool,
@@ -149,7 +141,7 @@ struct Args {
 
 impl Args {
     fn is_args_available(&self) -> bool {
-        self.prompts || self.resources || self.tools
+        self.prompts || self.tools
     }
 }
 
@@ -164,10 +156,6 @@ async fn display_info(args: &Args) {
             let prompts = prompts_list(None).await.unwrap();
             println!("{}", serde_json::to_string(&prompts).unwrap());
         }
-        if args.resources {
-            let resources = resources_list(None).await.unwrap();
-            println!("{}", serde_json::to_string(&resources).unwrap());
-        }
         if args.tools {
             let tools = tools_list(None).await.unwrap();
             println!("{}", serde_json::to_string(&tools).unwrap());
@@ -179,13 +167,6 @@ async fn display_info(args: &Args) {
                 r#"prompts:
 - security_check_program: check security of an anchor program
 - security_check_file: check security of an anchor file
-"#
-            );
-        }
-        if args.resources {
-            println!(
-                r#"resources:
-- sqlite: file:///path/to/sqlite.db
 "#
             );
         }
