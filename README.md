@@ -1,4 +1,6 @@
-MCP Rust CLI server template
+Anchor MCP
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Crates.io](https://img.shields.io/crates/v/anchor-mcp?color=blue)](https://crates.io/crates/anchor-mcp) <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/honey-guard/anchor-mcp/rust.yml">
 =============================
 
 This is a MCP CLI server template for Anchor programs.
@@ -12,7 +14,6 @@ This server uses [mcp-rs-template.](https://github.com/linux-china/mcp-rs-templa
 # CLI options
 
 * `--mcp`: Enable MCP server
-* `--resources`: display resources
 * `--prompts`: display prompts
 * `--tools`: display tools
 
